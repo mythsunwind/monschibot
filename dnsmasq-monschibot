@@ -1,4 +1,4 @@
 interface=wlan0
   # make all hosts resolve to pi's address
-  address=/#/192.168.0.1
+  address=/connectivitycheck.gstatic.com/192.168.0.1
   dhcp-range=192.168.0.2,192.168.0.20,255.255.255.0,24h
