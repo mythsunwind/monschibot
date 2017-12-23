@@ -1,3 +1,5 @@
+![Monschibot Logo](/static/logo.svg)
+
 # Monschibot
 
 A remote controlled raspberry pi with a touch-enabled web interface that sends commands through websocket.

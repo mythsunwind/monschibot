@@ -91,7 +91,7 @@
             height: 32pt;
         }
 
-        .icon img {
+        .logo img {
             width: 32pt;
             height: 32pt;
         }
@@ -100,7 +100,7 @@
         var startY, socket, previousNumber;
 
         function init() {
-            var host = document.domain ? document.domain : '191.168.178.38';
+            var host = document.domain ? document.domain : '192.168.178.38';
             socket = new WebSocket('ws://' + host + ':5000/socket');
             var msg = document.querySelector("#message");
             msg.innerHTML = "connecting to websocket...";
@@ -183,8 +183,8 @@
 <body onload="init()">
     <header>
         <div>
-            <div class="icon">
-                <img src="icon.svg" />
+            <div class="logo">
+                <img src="logo.svg" />
             </div>
         </div>
         <div></div>
