@@ -54,4 +54,6 @@ python monschibot.py
 
 All code is licensed under GNU GENERAL PUBLIC LICENSE Version 3.
 
-Icons are licensed under Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) by [SmartIcons](https://github.com/frexy/glyph-iconset/)
+Glyphs are licensed under [Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA 4.0) by [SmartIcons](https://github.com/frexy/glyph-iconset/).
+
+The monschibot logo is licensed under [Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/).
