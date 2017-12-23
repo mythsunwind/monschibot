@@ -27,6 +27,14 @@
             height: 10%;
         }
 
+        #message {
+            background: grey;
+            color: white;
+            font-weight: bold;
+            font-size: 8pt;
+            text-align: center;
+        }
+
         footer {
             display: flex;
             flex-direction: row;
@@ -82,26 +90,32 @@
             width: 32pt;
             height: 32pt;
         }
+
+        .icon img {
+            width: 32pt;
+            height: 32pt;
+        }
     </style>
     <script>
         var startY, socket, previousNumber;
 
         function init() {
-            var host = document.domain ? document.domain : '192.168.178.38';
+            var host = document.domain ? document.domain : '191.168.178.38';
             socket = new WebSocket('ws://' + host + ':5000/socket');
+            var msg = document.querySelector("#message");
+            msg.innerHTML = "connecting to websocket...";
 
             socket.addEventListener('open', function (event) {
-                console.log("connection to websocket");
+                msg.innerHTML = "";
+                console.log("connected to websocket");
                 // reloading the page should stop the bot
                 stop();
             });
 
-            /*socket.addEventListener('close', function (event) {
-                var el = document.querySelector("header");
-                el.innerHTML = "connection to " + host + " failed";
-                el.style.backgroundColor = '#f00';
-                console.log("connection to websocket closed");
-            });*/
+            socket.addEventListener('error', function (event) {
+                msg.innerHTML = "connection to websocket failed: " + event.target.url;
+                msg.style.backgroundColor = "#f00";
+            });
 
             // initialize touch listeners for forward control
             var el = document.querySelector("#forward");
@@ -167,7 +181,22 @@
 </head>
 
 <body onload="init()">
-    <header></header>
+    <header>
+        <div>
+            <div class="icon">
+                <img src="icon.svg" />
+            </div>
+        </div>
+        <div></div>
+        <div>
+            <!--
+            <button onclick="dev()">
+                <img src="si-glyph-tool-box.svg" />
+            </button>
+            -->
+        </div>
+    </header>
+    <div id="message"></div>
     <div id="forward">
         <div class="darkest"></div>
         <div class="darker"></div>
