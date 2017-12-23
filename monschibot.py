@@ -18,6 +18,10 @@ def forward(speed):
     motor_right.forward(speed)
     motor_left.forward(speed)
 
+@app.route('/')
+def index():
+    return redirect("/static/index.html", code=302)
+
 @app.route('/generate_204')
 def captive_portal():
     return redirect("/static/index.html", code=302)

@@ -101,7 +101,7 @@
 
         function init() {
             var host = document.domain ? '192.168.0.1' : '192.168.178.38';
-            socket = new WebSocket('ws://' + host + ':5000/socket');
+            socket = new WebSocket('ws://' + host + ':80/socket');
             var msg = document.querySelector("#message");
             msg.innerHTML = "connecting to websocket...";
 
