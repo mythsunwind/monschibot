@@ -9,7 +9,7 @@ A remote controlled raspberry pi with a touch-enabled web interface that sends c
 * Smart Robot Car Chassis Kit (included chassis, wheels, motors, battery box)
 * Cheap portable power pack
 
-Hardware assembled as described by Gautier Mechling: [Android Things](http://nilhcem.com/android-things/discovering-the-GPIO-api-building-a-remote-car)
+Hardware assembled as described by Gautier Mechling on [Android Things](http://nilhcem.com/android-things/discovering-the-GPIO-api-building-a-remote-car)
 
 ## Remote control
 
@@ -20,13 +20,31 @@ A python server serves the small website and listens to a websocket. The website
 ## Setup
 
 Install python libraries for the webserver:
-
 ```
 apt-get install python3-gpiozero
 apt-get install python3-flask
 apt-get install python3-pip
 pip3 install Flask-Sockets
 ```
+
+Setup dnsmasq:
+```
+sudo service dnsmasq stop
+sudo cp dnsmasq-monschibot /etc/dnsmasq.d/
+```
+
+Setup hostapd:
+```
+sudo cp hostapd.conf /etc/hostapd/
+echo DAEMON_CONF="/etc/hostapd/hostapd.conf" >> /etc/default/hostapd
+```
+
+Setup wireless network interface:
+```
+sudo cp interfaces /etc/network/interfaces
+```
+
+Restart
 
 ## Start server
 
