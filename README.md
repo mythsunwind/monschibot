@@ -49,3 +49,9 @@ Restart
 ## Start server
 
 python monschibot.py
+
+## License
+
+All code is licensed under GNU GENERAL PUBLIC LICENSE Version 3.
+
+Icons are licensed under Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) by [SmartIcons](https://github.com/frexy/glyph-iconset/)
