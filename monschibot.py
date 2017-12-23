@@ -25,6 +25,12 @@ def index():
 @app.route('/generate_204')
 def captive_portal():
     return redirect("/static/index.html", code=302)
+
+@app.route('/shutdown')
+def shutdown():
+    import os
+    os.system("shutdown -h 0")
+    quit()
     
 @sockets.route('/socket')
 def on_socket(ws):
