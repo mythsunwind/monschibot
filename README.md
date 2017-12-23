@@ -1,4 +1,4 @@
-![Monschibot Logo](/static/logo.svg)
+<p align="center"><img src="./static/logo.svg" width="100" height="100" alt="Monschibot logo"></p>
 
 # Monschibot
 
