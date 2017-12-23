@@ -14,23 +14,27 @@
             margin: 0;
         }
 
-        header {
-            height: 20px;
-            text-align: center;
-            color: #fff;
-            font-weight: bold;
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
         }
 
-        #controls {
-            height: 90%;
+        header {
             display: flex;
             flex-direction: row;
-            align-items: flex-end;
+            justify-content: space-around;
+            height: 10%;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: row;
             justify-content: space-around;
         }
 
         #forward {
-            background: #231935;
+            flex: 1;
             align-self: stretch;
             display: flex;
             flex-direction: column;
@@ -105,6 +109,11 @@
             el.addEventListener("touchend", stop, false);
             el.addEventListener("touchcancel", stop, false);
             el.addEventListener("touchmove", move, false);
+            // initialze touch listeners for backward control
+            var el = document.querySelector("#backward");
+            el.addEventListener("touchstart", backward, false);
+            el.addEventListener("touchend", stop, false);
+            el.addEventListener("touchcancel", stop, false);
             console.log("initialized");
         }
 
@@ -148,30 +157,43 @@
             console.log("R")
             socket.send('R');
         }
+
+        function backward() {
+            stop();
+            console.log("B")
+            socket.send('B');
+        }
     </script>
 </head>
 
 <body onload="init()">
     <header></header>
-    <div id="controls">
+    <div id="forward">
+        <div class="darkest"></div>
+        <div class="darker"></div>
+        <div class="dark"></div>
+        <div class="light"></div>
+        <div class="lighter"></div>
+    </div>
+    <footer>
         <div>
             <button onclick="left()">
                 <img src="si-glyph-arrow-backward.svg" />
+                <span>90°</span>
             </button>
         </div>
-        <div id="forward">
-            <div class="darkest">5</div>
-            <div class="darker">4</div>
-            <div class="dark">3</div>
-            <div class="light">2</div>
-            <div class="lighter">1</div>
+        <div>
+            <button id="backward">
+                <img src="si-glyph-arrow-down.svg" />
+            </button>
         </div>
         <div>
             <button onclick="right()">
+                <span>90°</span>
                 <img src="si-glyph-arrow-forward.svg" />
             </button>
         </div>
-    </div>
+    </footer>
 </body>
 
 </html>

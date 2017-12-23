@@ -37,6 +37,9 @@ def on_socket(ws):
             motor_left.forward()
             sleep(0.7)
             stop()
+        elif message == 'B':
+            motor_right.backward(5)
+            motor_left.backward(5)
         elif message == '1':
             forward(0.2)
         elif message == '2':
