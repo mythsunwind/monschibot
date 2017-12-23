@@ -38,8 +38,8 @@ def on_socket(ws):
             sleep(0.7)
             stop()
         elif message == 'B':
-            motor_right.backward(5)
-            motor_left.backward(5)
+            motor_right.backward(1)
+            motor_left.backward(1)
         elif message == '1':
             forward(0.2)
         elif message == '2':
